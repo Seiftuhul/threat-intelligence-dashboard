@@ -1,0 +1,54 @@
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+from urllib.parse import urlparse
+
+# Step 1: Download phishing data CSV from PhishTank (replace with actual URL or local file path)
+url = 'https://data.phishtank.com/data/online-valid.csv'  # Example URL; update if needed
+
+print("Downloading phishing data...")
+response = requests.get(url)
+csv_filename = 'data/phishtank.csv'
+with open(csv_filename, 'wb') as f:
+    f.write(response.content)
+print(f"Data saved to {csv_filename}")
+
+# Step 2: Load CSV data into pandas dataframe
+print("Loading data into pandas dataframe...")
+df = pd.read_csv(csv_filename)
+
+# Step 3: Extract domain names from URLs
+def extract_domain(url):
+    try:
+        netloc = urlparse(url).netloc
+        # Remove 'www.' prefix if exists
+        if netloc.startswith('www.'):
+            netloc = netloc[4:]
+        return netloc
+    except:
+        return None
+
+print("Extracting domains...")
+df['domain'] = df['url'].apply(extract_domain)
+
+# Step 4: Count phishing reports by domain
+print("Counting reports per domain...")
+domain_counts = df['domain'].value_counts().head(10)
+
+# Step 5: Plot top 10 phishing domains
+print("Creating bar chart...")
+plt.figure(figsize=(12,6))
+domain_counts.plot(kind='bar', color='red')
+plt.title('Top 10 Reported Phishing Domains')
+plt.xlabel('Domain')
+plt.ylabel('Number of Reports')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+
+# Step 6: Save the figure
+chart_path = 'screenshots/top_phishing_domains.png'
+plt.savefig(chart_path)
+print(f"Bar chart saved to {chart_path}")
+
+# Step 7: Show plot (optional)
+plt.show()
