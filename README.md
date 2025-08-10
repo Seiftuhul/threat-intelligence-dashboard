@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# threat-intelligence-dashboard
-Phishing URL data analysis and visualization dashboard using Python.
-=======
 # Threat Intelligence Dashboard
 
 **Analyst:** Seif Tuhul  
@@ -11,7 +7,7 @@ Phishing URL data analysis and visualization dashboard using Python.
 
 ## Overview
 
-This project downloads phishing URL data from PhishTank, analyzes it using Python libraries (`requests`, `pandas`, `matplotlib`), and visualizes the top phishing domains in a bar chart. It demonstrates basic threat intelligence gathering and data visualization skills to identify common phishing sources.
+This project downloads phishing URL data from PhishTank, analyzes it using Python libraries (requests, pandas, matplotlib), and visualizes the top phishing domains in a bar chart. It demonstrates basic threat intelligence gathering and data visualization skills to identify common phishing sources.
 
 ---
 
@@ -20,7 +16,7 @@ This project downloads phishing URL data from PhishTank, analyzes it using Pytho
 - Python 3.x  
 - Requests (for data download)  
 - Pandas (for data manipulation)  
-- Matplotlib (for charting)
+- Matplotlib (for charting)  
 
 ---
 
@@ -60,9 +56,10 @@ The visualization highlights the most commonly reported phishing domains, helpin
 
 ## Attachments
 
-- Dashboard Python Script  
-- Phishing URL CSV Data  
-- Screenshot of chart image: `screenshots/top_phishing_domains_20250810_040524.png`
+- [Dashboard Python Script](dashboard.py.txt)  
+- [Phishing URL CSV Data (CSV file)](data/phishtank_20250810_040524.csv)  
+- [Screenshot of chart image](screenshots/top_phishing_domains_20250810_040524.png)  
+- [Project Report (PDF)](Threat_Intelligence_Dashboard_Report.pdf)    
 
 ---
 
@@ -76,4 +73,3 @@ The visualization highlights the most commonly reported phishing domains, helpin
 ---
 
 Feel free to review the attached files and customize the dashboard for deeper analysis.
->>>>>>> bae51c8 (Initial commit with dashboard.py, report, screenshots, README, ignoring data folder)
